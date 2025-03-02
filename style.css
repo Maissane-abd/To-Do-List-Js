@@ -96,9 +96,87 @@ button {
     margin-top: 3.125rem; 
 }
 
+.wrapper .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2.813rem;
+    height: 2.813rem;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 0 1.125rem 0 1.25rem;
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(25rem);
+}
+
 .wrapper .form-box.login {
     transition: transform 0.18s ease;
     transform: translateX(0);
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 3.125rem;
+    border-bottom: 0.125rem solid #fff;
+    margin: 1.875rem 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 0.313rem;
+    color: #fff;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+    font-weight: 500;
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label {
+    top: -0.313rem;
+    left: 0.313rem;
+    color: #fff;
+    font-size: 0.8em;
+}
+
+.input-box input {
+    width : 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 0 2.188rem 0 0.313rem; 
+}
+
+.input-box .icon {
+    position: absolute;
+    right : 0.5rem;
+    font-size: 1.2em;
+    color: #fff;
+    line-height: 3.563rem;
 }
 
 .login-register {
@@ -127,6 +205,20 @@ button {
 }
 
 .success {
+    color: #00ff00;
+    font-size: 0.875rem;
+    display: none;
+    margin-top: 0.625rem;
+}
+
+.errorRegister {
+    color: #ff4c4c;
+    font-size: 0.875rem;
+    display: none;
+    margin-top: 0.625rem;
+}
+
+.successRegister {
     color: #00ff00;
     font-size: 0.875rem;
     display: none;
@@ -168,3 +260,4 @@ button {
     color: #162938;
     font-weight: 500;
 }
+
