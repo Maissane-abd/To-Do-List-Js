@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="root">
+        <div class="container">
+            
+            <!-- En-tête de l'application -->
+            <header class="container__header">
+                <div class="header__container">
+                    <div class="header__title-container">
+                       
+                    <!-- Titre principal -->
+                    <h1 class="header__title">JUST DO IT</h1>
+                    <button id="logoutBtn">Logout</button>
+                </div>
+            
+                    <!-- Barre de recherche et filtre de statut -->
+                    <div class="header__nav-panel">
+                        
+                        <!-- Champ de recherche -->
+                        <div class="field">
+                            <input type="text" id="searchTask" class="field__input" placeholder="Search note..." value="">
+                        </div>
+
+                        <!-- Filtre par statut -->
+                        <div class="select-container">
+                            <div class="search-filter">
+                                <select id="filterStatus">
+                                    <option value="all">ALL</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Completed">Completed</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Formulaire d'ajout de tâche -->
+                    <div class="todo-container">
+                        <input type="text" id="taskTitle" placeholder="Title :" required>
+                        <input type="text" id="taskDescription" placeholder="Description :" required>
+                        <input type="date" id="taskDeadline" required>
+                        <select id="taskStatus">
+                            <option value="In Progress">In progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                        <button id="addTaskBtn">Add</button>
+                    </div>
+
+                </div>
+            </header>  
+
+            <!-- Liste des tâches -->
+            <ul id="taskList"></ul>
+
+        </div>
+    </div>
+
+    <!-- Script principal -->
+    <script src="todo.js"></script>
+</body>
+</html>
