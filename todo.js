@@ -65,13 +65,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const title = taskTitle.value.trim();
         const description = taskDescription.value.trim();
         const deadline = taskDeadline.value;
+        const taskStatus = document.getElementById("taskStatus").value;
 
         if (title === "" || description === "" || deadline === "") {
             alert("Please fill in all fields and choose a valid date!");
             return;
         }
 
-        const newTask = { title, description, deadline,status: "In Progress", userId: currentUser.id };
+        const newTask = { title, description, deadline,status: taskStatus, userId: currentUser.id };
         const tasks = JSON.parse(localStorage.getItem(`tasks_${currentUser.id}`)) || [];
         tasks.push(newTask);
         localStorage.setItem(`tasks_${currentUser.id}`, JSON.stringify(tasks));
