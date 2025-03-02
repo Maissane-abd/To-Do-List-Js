@@ -91,9 +91,17 @@ button {
     justify-content: center;
     align-items: center;
      overflow: hidden;
-    /* transform: scale(0);
-    transition: transform .5s, height 0.2s ease; */
+    transform: scale(0);
+    transition: transform .5s, height 0.2s ease;
     margin-top: 3.125rem; 
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 32.5rem;
 }
 
 .wrapper .close {
@@ -113,15 +121,30 @@ button {
     border-radius: 0 1.125rem 0 1.25rem;
 }
 
+.wrapper .form-box {
+    width: 100%;
+    padding: 2.5rem;
+}
+
 .wrapper .form-box.register {
     position: absolute;
     transition: none;
     transform: translateX(25rem);
 }
 
+.wrapper.active .form-box.register {
+    transition: transform 0.18s ease;
+    transform: translateX(0);
+}
+
 .wrapper .form-box.login {
     transition: transform 0.18s ease;
     transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-25rem);
 }
 
 .form-box h2 {

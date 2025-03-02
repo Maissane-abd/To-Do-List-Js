@@ -10,7 +10,6 @@ const loginForm = document.querySelector('.form-box.login');
 // Afficher le formulaire d'inscription lorsque l'utilisateur clique sur "Register"
 registerLink.addEventListener('click', () => {
     wrapper.classList.add('active');
-    // localStorage.clear(); // Efface les données stockées précédemment pour éviter les conflits
 });
 
 // Revenir au formulaire de connexion lorsque l'utilisateur clique sur "Login"
@@ -30,7 +29,7 @@ btnClose.addEventListener('click', () => {
 
 // Gestion de l'inscription
 registerForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Empêche le rechargement de la page lors de la soumission
+    e.preventDefault(); 
     console.log('Form submitted');
 
     // Récupération des valeurs des champs
@@ -70,46 +69,4 @@ registerForm.addEventListener('submit', (e) => {
     setTimeout(() => {
         wrapper.classList.remove("active");
     }, 500);
-});
-
-// Gestion de la connexion
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Empêche le rechargement de la page lors de la soumission
-
-    // Récupération des valeurs des champs
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-
-    // Vérification que tous les champs sont remplis
-    if (email === "" || password === "") {
-        document.querySelector('.error').style.display = 'block';
-        return;
-    }
-
-    // Fonction pour cacher un message d'erreur lorsqu'un utilisateur modifie un champ    
-    let inputs = document.querySelectorAll('.form-box input');
-    inputs.forEach(input => {
-        input.addEventListener('input', () => {
-            document.querySelector('.error').style.display = 'none';
-        });
-    });
-
-    // Récupération des utilisateurs stockés dans le localStorage
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Vérification des identifiants
-    let validUser = users.find(user => user.email === email && user.password === password);
-
-    if (validUser) {
-        // Stocker l'utilisateur connecté dans localStorage
-        localStorage.setItem("currentUser", JSON.stringify(validUser));
-
-        // Redirection vers la page "todo.html" après une seconde si l'utilisateur est authentifié
-        setTimeout(() => {
-            window.location.href = "todo.html";
-        }, 500);
-    } else {
-        // Affichage d'un message d'erreur si les identifiants sont incorrects
-        document.querySelector('.error').style.display = 'block';
-    }
 });
